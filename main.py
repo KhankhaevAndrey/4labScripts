@@ -58,7 +58,7 @@ class MainWindow(QMainWindow):
         button_layout.addWidget(self.add_button)
 
         self.delete_button = QPushButton("Удалить")
-        self.delete_button.clicked.connect(self.delete_record)
+        self.delete_button.clicked.connect(self.delete_row)
         button_layout.addWidget(self.delete_button)
 
         layout.addLayout(button_layout)
@@ -100,7 +100,7 @@ class MainWindow(QMainWindow):
         if dialog.exec_():
             self.load_data()
 
-    def delete_record(self):
+    def delete_row(self):
         selected_row = self.table.currentRow()
         if selected_row == -1:
             QMessageBox.warning(self, "Ошибка", "Выберите запись для удаления.")
